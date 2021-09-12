@@ -52,29 +52,10 @@ public class MyLinkedList<T>{
     }
 
 
-     //returns true if the element is in the list else returns false
-    public boolean search(T data){
-        return index(data) == -1 ? false : true;
-    }
-
-
-     //returns true if the list is empty else returns false
-    public boolean isEmpty(){
-        return position == -1 ? true : false;
-    }
-
-
 
      //returns size(number of elements) of the list
     public int size(){
         return position + 1;
-    }
-
-
-
-     //adds data to the end of the list
-    public void append(T data){
-        add(data);
     }
 
 
@@ -99,31 +80,6 @@ public class MyLinkedList<T>{
 
 
     //data- inserts element 'data' at 'pos' position
-    public void insert(int pos , T data){
-
-        if((pos == position+1) || (position == -1)){
-            add(data);
-        }
-        else if(pos == 0){
-            MyNode<T> tempNode = head;
-            head = new MyNode<T>(data);
-            head.next = tempNode;
-        }
-        else{
-            MyNode<T> tempCurrent = head;
-            MyNode<T> tempPrev = null;
-            int tempPosition = 0;
-            while(tempPosition <= pos + 1){
-                tempPrev = tempCurrent;
-                tempCurrent = tempCurrent.next;
-                tempPosition++;
-            }
-            MyNode<T> newNode = new MyNode<T>(data);
-            newNode.next = tempCurrent;
-            tempPrev.next = newNode;
-        }
-        position++;
-    }
 
 
      //pops elements at given location
@@ -152,29 +108,6 @@ public class MyLinkedList<T>{
         }
     }
 
-
-     //return pops and returns last element in the list
-
-    public T pop(){
-        return pop(position);
-    }
-
-
-
-     //returns object of given location
-
-    public T get(int location) {
-        MyNode<T> tempCurrent = head;
-        int tempPosition = 0;
-
-        while(tempPosition != location){
-            tempCurrent = tempCurrent.next;
-            tempPosition++;
-        }
-
-        return tempCurrent.data;
-
-    }
 
      //prints all the elements in the list
     public void list(){
